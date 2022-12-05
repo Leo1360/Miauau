@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-form{
+    align-items: center;
+    display: flex;
+    width: 60%;
+    justify-content: center;
+}
+
+.container-image{
+    width: 40vw;
+}
+
+img.dog{
+    height: 100vh;
+}
+
+.container-form form .form-fields{
+    display: flex;
+    flex-direction: column;
+}
+
+.logomarca{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logomarca h1{
+    font-size: 80px;
+}
+
+.logomarca img{
+    width: 180px;
+}
+
+label{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input{
+    height: 40px;
+    border: none;
+    border-bottom: #c2c2c2 2px solid;
+    padding: 5px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+input[type=email]:focus {
+    border: none;
+    border: #c2c2c2 2px solid;
+  }
+
+.button-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+button{
+    width: 220px;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 23px;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    background-color: #4fb477;
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.button-form a{
+    color: rgb(56, 56, 56);
+    margin-top: -40px;
+}
+
+.index{
+    color: whitesmoke !important;
+    text-decoration: none;
+
+}

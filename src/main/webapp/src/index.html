@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/veterinario.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="scripts/index.js" type="module" defer></script>
+
+    <title>MiauAu - Cadastrar</title>
+</head>
+<body>
+
+    <header>
+        
+            <ul>
+                <li>
+                    <a href="#">
+                        <ion-icon name="duplicate-outline"></ion-icon>
+                        <span class="menu-option">Cadastrar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="read.html">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <span class="menu-option">Consultar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="update.html">
+                        <ion-icon name="create-outline"></ion-icon>
+                        <span class="menu-option">Atualizar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="delete.html">
+                        <ion-icon name="trash-outline"></ion-icon>
+                        <span class="menu-option">Excluir</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <span class="menu-option">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        
+    </header>
+
+    <main class="main">
+        <div class="form-container">
+            <form action="">
+                <div class="form-sections">  
+                    <section>
+                        <h2>Pet</h2>
+                        <div><label style="
+                            width: 420px;" for="">Tipo do Animal</label>
+                            <select style="
+                            width: 678px;
+                            height: 30px;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            padding: 5px;" id="cars" name="tipoPaciente">
+                                <option value="cachorro">Cachorro</option>
+                                <option value="cato">Gato</option>
+                            </select><br>
+                        </div>    
+                        <div><label style="
+                            width: 420px;" for="">Porte</label>
+                            <select style="
+                            width: 678px;
+                            height: 30px;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            padding: 5px;" id="cars" name="portePaciente">
+                                <option value="pequeno">Pequeno</option>
+                                <option value="medio">Médio</option>
+                                <option value="grande">Grande</option>
+                            </select><br>
+                        </div>    
+                        <div><label for="">Nome</label><input type="text" placeholder="" name="nomePaciente"></div>   
+                        <div><label for="">Idade</label><input type="number" placeholder="" name="idadePaciente"></div> 
+                        <div><label for="">Peso</label><input type="number" placeholder="" name="peso"><br></div>
+                        <div><label for="">Raça</label><input type="text" placeholder="" name="racaPaciente"><br></div>                    
+                        <div><label for="">Pedigrie</label><input type="number" placeholder="" name="pedigriePaciente"></div>
+                        
+                                     
+                                           
+                    </section>
+                    
+                    <section>
+                        <h2>Responsável</h2>
+                        <div><label for="">Nome</label><input type="text" placeholder="" name="nomeResonsavel"><br></div>              
+                        <div><label for="">CPF</label><input type="number" placeholder="" name="cpfResponsavel"><br></div>              
+                    </section>
+            
+                    <section>
+                        <h2>Contato</h2>
+                        <div><label for="">DDD</label><input id="ddd" type="number" placeholder="011" name="dddTelefone"><br></div>
+                        <div><label for="">Número</label><input id="numero" type="number" placeholder="" name="numeroTelefone"><br></div>
+                        <div style="display: flex"><input type="checkbox"  id="" name="temWhatsapp" style="width: 25px;"><label for="" style="
+                            width: 240px;">É WhatsApp?</label></div>   
+                    </section>
+
+                    
+                    <section> 
+                        <h2>Endereço</h2>
+                        <div><label for="">CEP</label><input type="number" placeholder="0000-000" id="cep" name="CEPEndereco"></div>
+                        <div><label for="">Logradouro</label><input type="text" placeholder="Rua, Avenida" id="endereco" name="logradouroEndereco"></div>
+                        <div><label for="">Complemento</label><input type="text" placeholder="De frente para o Makro" id="complemento" name="comlementoEndereco"><br></div>
+                        <div><label for="">Bairro</label><input type="text" placeholder="Centro, Jardim Santista" id="bairro" name="bairroEndereco"></div>
+                        <div><label for="">Número</label><input type="text" placeholder="161, S/N" name="numeroEndereco"><br></div>
+                        <div><label for="">Cidade</label><input type="text" placeholder="Mogi das cruzes, Poá" id="cidade" name="cidade"><br></div>
+                        <div><label for="">Estado</label><input type="text" placeholder="UF" id="estado" itemid="estado" name="estado"></div>
+                    </section>
+                </div>
+                <div class="buttons-container-index">
+                    <input type="submit" value="Cadastrar">
+                    <button type="submit" class="rascunho">Cadastrar como Rascunho</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="scripts/index.js" type="module" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/veterinario.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/delete.css">
+    <link rel="stylesheet" href="css/read.css">
+    <title>MiauAu - Deletar</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <ion-icon name="duplicate-outline"></ion-icon>
+                        <span class="menu-option">Cadastrar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="read.html">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <span class="menu-option">Consultar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="update.html">
+                        <ion-icon name="create-outline"></ion-icon>
+                        <span class="menu-option">Atualizar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="delete.html">
+                        <ion-icon name="trash-outline"></ion-icon>
+                        <span class="menu-option">Excluir</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <span class="menu-option">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="fornecedores-container">
+        <div class="cadastro-user"><h2>Excluir Pets</h2></div>
+        <div class="search-box">
+            <input type="text" pattern="\d*" placeholder="Pesquise por nome">
+            <button type="submit">Pesquisar</button>
+        </div>
+        <div class="fornecedores-table">
+            <table>
+                <tr>
+                    <td class="select-all"><input type="checkbox" id="select_all"></td>
+                    <th>Nome</th>
+                    <th>Raça</th>    
+                    <th>Peso</th>
+                    <th>Responsável</th>
+                    <th>Cidade</th>
+                    <th>Contato WhatsApp</th>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td><input type="checkbox" class="checkbox-size"></td>
+                    <td>Jorge Bolinha</td>
+                    <td>Vira lata</td>
+                    <td>20,00 kg</td>
+                    <td>Beatriz</td>
+                    <td>Mogi das Cruzes</td>
+                    <td>11 965764649</td>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td><input type="checkbox" class="checkbox-size"></td>
+                    <td>Lidinha</td>
+                    <td>Vira lata caramelo</td>
+                    <td>22,00 kg</td>
+                    <td>Beatriz</td>
+                    <td>Mogi das Cruzes</td>
+                    <td>11 965764649</td>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td><input type="checkbox" class="checkbox-size"></td>
+                    <td>Johnny</td>
+                    <td>Golden Retriever</td>
+                    <td>45,00 kg</td>
+                    <td>Fernando</td>
+                    <td>Poá</td>
+                    <td>11 940028922</td>
+                </tr>
+            </table>
+            <input class="delete" type="button" value="Excluir Cadastro">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $('#select_all').click(function() {
+            var c = this.checked;
+            $(':checkbox').prop('checked', c);
+        });
+    </script>
+
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

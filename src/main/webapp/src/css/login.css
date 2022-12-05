@@ -1,0 +1,115 @@
+main{
+    /* width: 100vw;
+    height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(71.17deg, #1174C9 19.35%, #00539b 90.12%);
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container div{
+    display: flex;
+    align-items: center;
+}
+
+.img-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+img{
+    width: 20vw;
+}
+
+input.login{
+    width: 30vw;
+    height: 50px;
+    border-radius: 13px;
+    font-size: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+button.login-btn{
+    width: 30vw;
+    height: 50px;
+    border-radius: 13px;
+    border: none;
+    background-color: #1b2957; 
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 1em #1b2957 ;
+    transition: 1s ease-in-out;
+}
+
+a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+form.cadastro{
+    justify-content: center;
+}
+
+a.cadastro{
+    text-decoration: underline;
+    margin-bottom: 100px;
+}
+
+a.login{
+    text-decoration: underline;
+    margin-bottom: -100px;
+    align-self: center;
+}
+
+button:hover{
+    box-shadow: 0 0 1em #7090f7
+}
+
+main.cadastro{
+    height: 100vh;
+}
+
+.signup-container{
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.img-container-signup{
+    display: flex;
+    flex-direction: column;
+}
+
+.img-container-signup img{
+    width: 25vw;
+}
+
+.input-signup{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    align-self: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 500;
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/veterinario.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/update.css">
+    <link rel="stylesheet" href="css/read.css">
+    <title>MiauAu - Atualizar</title>
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <ion-icon name="duplicate-outline"></ion-icon>
+                        <span class="menu-option">Cadastrar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="read.html">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <span class="menu-option">Consultar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="update.html">
+                        <ion-icon name="create-outline"></ion-icon>
+                        <span class="menu-option">Atualizar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="delete.html">
+                        <ion-icon name="trash-outline"></ion-icon>
+                        <span class="menu-option">Excluir</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <span class="menu-option">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="fornecedores-container">
+        <div class="fornecedores-table">
+            <div class="cadastro-user"><h2>Alterar Pets</h2></div>
+            <div class="search-box">
+                <input type="text" pattern="\d*" placeholder="Pesquise por nome">
+                <button type="submit">Pesquisar</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Raça</th>    
+                    <th>Peso</th>
+                    <th>Responsável</th>
+                    <th>Cidade</th>
+                    <th>Contato WhatsApp</th>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td>Jorge Bolinha</td>
+                    <td>Vira lata</td>
+                    <td>20,00 kg</td>
+                    <td>Beatriz</td>
+                    <td>Mogi das Cruzes</td>
+                    <td>11 965764649</td>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td>Lidinha</td>
+                    <td>Vira lata caramelo</td>
+                    <td>22,00 kg</td>
+                    <td>Beatriz</td>
+                    <td>Mogi das Cruzes</td>
+                    <td>11 965764649</td>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td>Johnny</td>
+                    <td>Golden Retriever</td>
+                    <td>45,00 kg</td>
+                    <td>Fernando</td>
+                    <td>Poá</td>
+                    <td>11 940028922</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+    <div class="modal" id="modal">
+        <div class="form-container">
+            <form action="">
+                <div class="form-sections">  
+                    <section>
+                        <div class="close-button">
+                            <h2>Alterar Fornecedor</h2>
+                            <ion-icon name="close-circle"></ion-icon>
+                        </div>
+                        
+                        <div><label style="
+                            width: 420px;" for="">Tipo do Animal</label>
+                            <select style="
+                            width: 678px;
+                            height: 30px;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            padding: 5px;" id="cars" name="tipoPaciente">
+                                <option value="cachorro">Cachorro</option>
+                                <option value="cato">Gato</option>
+                            </select><br>
+                        </div>    
+                        <div><label style="
+                            width: 420px;" for="">Porte</label>
+                            <select style="
+                            width: 678px;
+                            height: 30px;
+                            border-radius: 5px;
+                            font-size: 14px;
+                            padding: 5px;" id="cars" name="portePaciente">
+                                <option value="pequeno">Pequeno</option>
+                                <option value="medio">Médio</option>
+                                <option value="grande">Grande</option>
+                            </select><br>
+                        </div>    
+                        <div><label for="">Nome</label><input type="text" placeholder="" name="nomePaciente"></div>   
+                        <div><label for="">Idade</label><input type="number" placeholder="" name="idadePaciente"></div> 
+                        <div><label for="">Peso</label><input type="number" placeholder="" name="peso"><br></div>
+                        <div><label for="">Raça</label><input type="text" placeholder="" name="racaPaciente"><br></div>                    
+                        <div><label for="">Pedigrie</label><input type="number" placeholder="" name="pedigriePaciente"></div>
+                        
+                                     
+                                           
+                    </section>
+                    
+                    <section>
+                        <h2>Responsável</h2>
+                        <div><label for="">Nome</label><input type="text" placeholder="" name="nomeResonsavel"><br></div>              
+                        <div><label for="">CPF</label><input type="number" placeholder="" name="cpfResponsavel"><br></div>              
+                    </section>
+            
+                    <section>
+                        <h2>Contato</h2>
+                        <div><label for="">DDD</label><input id="ddd" type="number" placeholder="011" name="dddTelefone"><br></div>
+                        <div><label for="">Número</label><input id="numero" type="number" placeholder="" name="numeroTelefone"><br></div>
+                        <div style="display: flex"><input type="checkbox"  id="" name="temWhatsapp" style="width: 25px;"><label for="" style="
+                            width: 240px;">É WhatsApp?</label></div>   
+                    </section>
+
+                    
+                    <section> 
+                        <h2>Endereço</h2>
+                        <div><label for="">CEP</label><input type="number" placeholder="0000-000" id="cep" name="CEPEndereco"></div>
+                        <div><label for="">Logradouro</label><input type="text" placeholder="Rua, Avenida" id="endereco" name="logradouroEndereco"></div>
+                        <div><label for="">Complemento</label><input type="text" placeholder="De frente para o Makro" id="complemento" name="comlementoEndereco"><br></div>
+                        <div><label for="">Bairro</label><input type="text" placeholder="Centro, Jardim Santista" id="bairro" name="bairroEndereco"></div>
+                        <div><label for="">Número</label><input type="text" placeholder="161, S/N" name="numeroEndereco"><br></div>
+                        <div><label for="">Cidade</label><input type="text" placeholder="Mogi das cruzes, Poá" id="cidade" name="cidade"><br></div>
+                        <div><label for="">Estado</label><input type="text" placeholder="UF" id="estado" itemid="estado" name="estado"></div>
+                    </section>
+                </div>
+                <div class="buttons-container">
+                    <input type="submit" value="Atualizar Fornecedor">
+                    <button type="submit" class="inativar">Inativar Fornecedor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $(".fornecedor").click(function(){
+            let modal = document.getElementById('modal');
+            modal.style.display = "block";
+        });
+        $(".close-button").click(function(){
+            let modal = document.getElementById('modal');
+            modal.style.display = "none";
+        })
+    </script>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

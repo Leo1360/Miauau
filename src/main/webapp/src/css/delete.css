@@ -1,0 +1,60 @@
+.fornecedores-container{
+    padding: 20px;
+    margin-left: 250px;
+}
+
+.fornecedores-container table tr td input[type="checkbox"]{
+    width: 20px;
+}
+
+h2{
+    color: #072B47;
+    width: 100%;
+    border-bottom: #c2c2c2 2px solid;
+    padding-bottom: 10px;
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+
+th{
+    padding: 10px 5px;
+    text-align: start;
+    background-color: #979797;
+    color: white;
+    border-radius: 3px;
+}
+
+tr td{
+    color: #454545;
+    font-size: 18px;
+    padding: 5px;
+    border: 1px #c2c2c2 solid;
+    border-radius: 3px;
+    transition: 0.5s ease;
+}
+
+.fornecedor:hover td{
+    cursor: pointer;
+}
+
+.select-all{
+    background-color: #979797;
+}
+
+input[type="button"].delete{
+    width: 250px;
+    height: 50px;
+    border-radius: 13px;
+    margin: 50px 0;
+    color: aliceblue;
+    background-color: #ff4d55;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+input[type="button"].delete:hover{
+    background-color: #f52933;
+}
