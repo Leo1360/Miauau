@@ -4,8 +4,10 @@ import br.com.capy.controle.command.*;
 import br.com.capy.controle.vh.IViewHelper;
 import br.com.capy.controle.vh.PacienteViewHelper;
 import br.com.capy.domain.EntidadeDominio;
+import br.com.capy.domain.Estado;
 import br.com.capy.util.Resultado;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +20,10 @@ public class Controller extends HttpServlet {
     private HashMap<String, IViewHelper> vhMap = new HashMap<>();
 
     public Controller() {
-        commandMap.put("SAVE",new SalvarCMD());
+        commandMap.put("SALVAR",new SalvarCMD());
         commandMap.put("ALTERAR",new AlterarCMD());
         commandMap.put("EXCLUIR",new ExcluirCMD());
-        commandMap.put("VISUALIZAR",new VisualizarCMD());
+        commandMap.put("CONSULTAR",new VisualizarCMD());
 
         vhMap.put("/miauau/paciente", new PacienteViewHelper());
     }
@@ -39,9 +41,13 @@ public class Controller extends HttpServlet {
     }
 
     private void processar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String operacao = req.getParameter("operacao");
+        if(operacao == null || operacao.length()==0){
+            operacao = "CONSULTAR";
+        }
         IViewHelper vh = vhMap.get(req.getRequestURI());
         EntidadeDominio entidadeDominio = vh.get(req,resp);
-        String operacao = req.getParameter("operacao");
+
         ICommand command = commandMap.get(operacao);
         Resultado resultado = command.executar(entidadeDominio);
         vh.set(req,resp,resultado);

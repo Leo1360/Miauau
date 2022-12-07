@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -48,12 +49,57 @@
         </nav>
     </header>
 
+    <script>
+        function showOption(element) {
+
+            var linha = element.parentNode.parentNode.rowIndex
+
+            // código que pega o indice da lista e ajustas os valores nos campos da sobreposição
+
+            var dados = [] //Tabela com dados dos pacientes
+            <c:forEach items="${pacienteList}" var="paciente">
+                var arr = [];
+                arr.push("<c:out value="${paciente.getNome()}" />");
+                arr.push("<c:out value="${paciente.getPeso()}" />");
+                arr.push("<c:out value="${paciente.getResponsavel().getEndereco().getCidade().getEstado().getNome()}" />");
+                arr.push("<c:out value="${paciente.getRaca().getAnimal().toString()}" />");
+                arr.push("<c:out value="${paciente.getRaca().getPorte().toString()}" />");
+                arr.push("<c:out value="${paciente.getRaca().getNome()}" />");
+                list.push(arr);
+            </c:forEach>
+
+            dados[1] = ["gato","medio","Jorge"]
+            dados[2] = ["gato","medio","Amanda"]
+            dados[3] = ["gato","medio","Emily"]
+
+            //Alterar valor dos campos na sobreposição
+            document.getElementById("idPaciente").value             = dados[linha][0];
+            document.getElementById("tipoPaciente").value           = dados[linha][1];
+            document.getElementById("portePaciente").value          = dados[linha][2];
+            document.getElementById("nomePaciente").value           = dados[linha][3];
+            document.getElementById("idadePaciente").value          = dados[linha][4];
+            document.getElementById("peso").value                   = dados[linha][5];
+            document.getElementById("racaPaciente").value           = dados[linha][6];
+            document.getElementById("pedigriePaciente").value       = dados[linha][7];
+            document.getElementById("nomeResonsavel").value         = dados[linha][8];
+            document.getElementById("cpfResponsavel").value         = dados[linha][9];
+            document.getElementById("dddTelefone").value            = dados[linha][10];
+            document.getElementById("numeroTelefone").value         = dados[linha][11];
+            document.getElementById("temWhatsapp").value            = dados[linha][12];
+            document.getElementById("CEPEndereco").value            = dados[linha][13];
+            document.getElementById("logradouroEndereco").value     = dados[linha][14];
+            document.getElementById("comlementoEndereco	").value    = dados[linha][15];
+            document.getElementById("bairroEndereco").value         = dados[linha][16];
+            document.getElementById("numeroEndereco").value         = dados[linha][17];
+            document.getElementById("cidade").value                 = dados[linha][18];
+            document.getElementById("estado").value                 = dados[linha][19];
+
+
+        }
+    </script>
+
     <div class="fornecedores-container">
         <div class="cadastro-user"><h2>Consultar Pets</h2></div>
-        <div class="search-box">
-            <input type="text" pattern="\d*" placeholder="Pesquise por nome">
-            <button type="submit">Pesquisar</button>
-        </div>
         <div class="fornecedores-table">
             <table>
                 <tr>
@@ -63,15 +109,17 @@
                     <th>Responsável</th>
                     <th>Cidade</th>
                     <th>Contato WhatsApp</th>
+                    <th></th>
                 </tr>
 
                 <tr class="fornecedor">
-                    <td>Jorge Bolinha</td>
+                    <td>Jorge</td>
                     <td>Vira lata</td>
                     <td>20,00 kg</td>
                     <td>Beatriz</td>
                     <td>Mogi das Cruzes</td>
                     <td>11 965764649</td>
+                    <td><input type="button" value="" onclick="showOption(this)"></td>
                 </tr>
 
                 <tr class="fornecedor">
@@ -81,6 +129,7 @@
                     <td>Beatriz</td>
                     <td>Mogi das Cruzes</td>
                     <td>11 965764649</td>
+                    <td><input type="button" value="" onclick="showOption(this)"></td>
                 </tr>
 
                 <tr class="fornecedor">
@@ -90,6 +139,7 @@
                     <td>Fernando</td>
                     <td>Poá</td>
                     <td>11 940028922</td>
+                    <td><input type="button" value="" onclick="showOption(this)"></td>
                 </tr>
 
             </table>
@@ -99,7 +149,8 @@
     <div class="modal" id="modal">
         <div class="form-container">
             <form action="">
-                <div class="form-sections">  
+                <div class="form-sections">
+                    <input type="hidden" id="idPaciente">  
                     <section>
                         <div class="close-button">
                             <h2>Consultar Pet</h2>
@@ -113,29 +164,29 @@
                             height: 30px;
                             border-radius: 5px;
                             font-size: 14px;
-                            padding: 5px;" id="cars" name="tipoPaciente">
+                            padding: 5px;" id="tipoPaciente" name="tipoPaciente">
                                 <option value="cachorro">Cachorro</option>
-                                <option value="cato">Gato</option>
+                                <option value="gato">Gato</option>
                             </select><br>
                         </div>    
                         <div><label style="
                             width: 420px;" for="">Porte</label>
-                            <select style="
+                            <se lect style="
                             width: 678px;
                             height: 30px;
                             border-radius: 5px;
                             font-size: 14px;
-                            padding: 5px;" id="cars" name="portePaciente">
+                            padding: 5px;" id="portePaciente" name="portePaciente">
                                 <option value="pequeno">Pequeno</option>
                                 <option value="medio">Médio</option>
                                 <option value="grande">Grande</option>
                             </select><br>
                         </div>    
-                        <div><label for="">Nome</label><input type="text" placeholder="" name="nomePaciente"></div>   
-                        <div><label for="">Idade</label><input type="number" placeholder="" name="idadePaciente"></div> 
-                        <div><label for="">Peso</label><input type="number" placeholder="" name="peso"><br></div>
-                        <div><label for="">Raça</label><input type="text" placeholder="" name="racaPaciente"><br></div>                    
-                        <div><label for="">Pedigrie</label><input type="number" placeholder="" name="pedigriePaciente"></div>
+                        <div><label for="">Nome</label><input type="text" placeholder="" id="nomePaciente" name="nomePaciente"></div>   
+                        <div><label for="">Idade</label><input type="number" placeholder="" id="idadePaciente" name="idadePaciente"></div> 
+                        <div><label for="">Peso</label><input type="number" placeholder="" id="peso" name="peso"><br></div>
+                        <div><label for="">Raça</label><input type="text" placeholder="" id="racaPaciente" name="racaPaciente"><br></div>                    
+                        <div><label for="">Pedigrie</label><input type="number" placeholder="" id="pedigriePaciente" name="pedigriePaciente"></div>
                         
                                      
                                            
@@ -143,26 +194,26 @@
                     
                     <section>
                         <h2>Responsável</h2>
-                        <div><label for="">Nome</label><input type="text" placeholder="" name="nomeResonsavel"><br></div>              
-                        <div><label for="">CPF</label><input type="number" placeholder="" name="cpfResponsavel"><br></div>              
+                        <div><label for="">Nome</label><input type="text" placeholder="" id="nomeResonsavel" name="nomeResonsavel"><br></div>              
+                        <div><label for="">CPF</label><input type="number" placeholder="" id="cpfResponsavel" name="cpfResponsavel"><br></div>              
                     </section>
             
                     <section>
                         <h2>Contato</h2>
-                        <div><label for="">DDD</label><input id="ddd" type="number" placeholder="011" name="dddTelefone"><br></div>
-                        <div><label for="">Número</label><input id="numero" type="number" placeholder="" name="numeroTelefone"><br></div>
-                        <div style="display: flex"><input type="checkbox"  id="" name="temWhatsapp" style="width: 25px;"><label for="" style="
+                        <div><label for="">DDD</label><input id="dddTelefone" type="number" placeholder="011" name="dddTelefone"><br></div>
+                        <div><label for="">Número</label><input id="numeroTelefone" type="number" placeholder="" name="numeroTelefone"><br></div>
+                        <div style="display: flex"><input type="checkbox"  id="temWhatsapp" name="temWhatsapp" style="width: 25px;"><label for="" style="
                             width: 240px;">É WhatsApp?</label></div>   
                     </section>
 
                     
                     <section> 
                         <h2>Endereço</h2>
-                        <div><label for="">CEP</label><input type="number" placeholder="0000-000" id="cep" name="CEPEndereco"></div>
-                        <div><label for="">Logradouro</label><input type="text" placeholder="Rua, Avenida" id="endereco" name="logradouroEndereco"></div>
-                        <div><label for="">Complemento</label><input type="text" placeholder="De frente para o Makro" id="complemento" name="comlementoEndereco"><br></div>
-                        <div><label for="">Bairro</label><input type="text" placeholder="Centro, Jardim Santista" id="bairro" name="bairroEndereco"></div>
-                        <div><label for="">Número</label><input type="text" placeholder="161, S/N" name="numeroEndereco"><br></div>
+                        <div><label for="">CEP</label><input type="number" placeholder="0000-000" id="CEPEndereco" name="CEPEndereco"></div>
+                        <div><label for="">Logradouro</label><input type="text" placeholder="Rua, Avenida" id="logradouroEndereco" name="logradouroEndereco"></div>
+                        <div><label for="">Complemento</label><input type="text" placeholder="De frente para o Makro" id="comlementoEndereco" name="comlementoEndereco"><br></div>
+                        <div><label for="">Bairro</label><input type="text" placeholder="Centro, Jardim Santista" id="bairroEndereco" name="bairroEndereco"></div>
+                        <div><label for="">Número</label><input type="text" placeholder="161, S/N" id="numeroEndereco" name="numeroEndereco"><br></div>
                         <div><label for="">Cidade</label><input type="text" placeholder="Mogi das cruzes, Poá" id="cidade" name="cidade"><br></div>
                         <div><label for="">Estado</label><input type="text" placeholder="UF" id="estado" itemid="estado" name="estado"></div>
                     </section>
@@ -183,6 +234,7 @@
             let modal = document.getElementById('modal');
             modal.style.display = "none";
         })
+
     </script> 
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

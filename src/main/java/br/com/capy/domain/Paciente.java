@@ -32,4 +32,22 @@ public class Paciente extends EntidadeDominio{
         this.responsavel = responsavel;
         this.raca = raca;
     }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", pedigrie='" + pedigrie + '\'' +
+                ", peso=" + peso +
+                ", ativo=" + ativo +
+                ", responsavel=" + responsavel +
+                ", exameList=" + exameList +
+                ", consultaList=" + consultaList +
+                ", adoecimentoList=" + adoecimentoList +
+                ", receitaList=" + receitaList +
+                ", raca=" + raca +
+                ", id=" + id +
+                '}';
+    }
 }

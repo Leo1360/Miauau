@@ -1,0 +1,13 @@
+services:
+  db:
+    image: mysql
+    container_name: db_miauau
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - miauau:/var/lib/mysql
+
+volumes:
+  miauau:

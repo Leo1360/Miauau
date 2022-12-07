@@ -11,12 +11,25 @@ public class ValidarPedigrie implements IStrategy {
     @Override
     public String processar(EntidadeDominio entidade) {
         Paciente paciente = (Paciente) entidade;
+        if(paciente.getPedigrie().equals("")){
+            return "";
+        }
         PacienteDAO dao = new PacienteDAO();
         List<Paciente> pacientesPedigrie =  dao.findByPedigrie(paciente.getPedigrie());
-        if(pacientesPedigrie.size()>0){
+        
+        boolean duplicidade = false;
+        for(Paciente paci:pacientesPedigrie){
+            if(paci.getId() != paciente.getId()){
+                duplicidade = true;
+                break;
+            }
+        }
+        
+        if(duplicidade){
             return "Pedigrie ja cadastrado!";
         }else{
             return "";
         }
+
     }
 }

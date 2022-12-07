@@ -1,10 +1,12 @@
 package br.com.capy.util;
 
 import br.com.capy.domain.EntidadeDominio;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@ToString
 public class Resultado {
     private String msg;
     private List<EntidadeDominio> resultado = new ArrayList<>();
