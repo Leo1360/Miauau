@@ -33,7 +33,7 @@ public class Fachada implements IFachada{
         List<IStrategy> listaRegrasSalvarPaciente = new ArrayList<>();
         listaRegrasSalvarPaciente.add(new ValidarPedigrie());
         listaRegrasSalvarPaciente.add(new ValidarCamposPaciente());
-        listaRegrasSalvarPaciente.add(new ValidarResponsavel());
+        listaRegrasSalvarPaciente.add(new ValidarResponsavelPaciente());
         mapaPaciente.put("SALVAR",listaRegrasSalvarPaciente);
             //Alterar
         mapaPaciente.put("ALTERAR",listaRegrasSalvarPaciente); // Alterar repete regras do salvamento
@@ -42,20 +42,6 @@ public class Fachada implements IFachada{
             //Adicionando regra de paciente para mapa de regras de startup
         startupRsnMap.put(Paciente.class.getSimpleName(),mapaPaciente);
 
-
-        //Startup RESPONSAVEL
-        HashMap<String,List<IStrategy>> mapaResponsavel = new HashMap<>();
-            //Salvar
-        List<IStrategy> listaRegrasSalvarResponsavel = new ArrayList<>();
-        listaRegrasSalvarResponsavel.add(new ValidarCpf());
-        listaRegrasSalvarResponsavel.add(new ValidarUnicidade());
-        mapaResponsavel.put("SALVAR",listaRegrasSalvarResponsavel);
-            //Alterar
-        mapaResponsavel.put("ALTERAR",listaRegrasSalvarResponsavel); // Alterar repete regras do salvamento
-            //Consultar
-            //Excluir
-            //Adicionando regra de paciente para mapa de regras de startup
-        startupRsnMap.put(Responsavel.class.getSimpleName(),mapaResponsavel);
 
         //===============Mapa regras de negócio pró processamento=========================
         HashMap<String,List<IStrategy>> mapaPacienteFim = new HashMap<>();
@@ -66,26 +52,18 @@ public class Fachada implements IFachada{
         mapaPacienteFim.put("EXCLUIR",listaRegrasSalvarPacienteFim);
         finalizationRnsMap.put(Paciente.class.getSimpleName(),mapaPacienteFim);
 
-        HashMap<String,List<IStrategy>> mapaResponsavelFim = new HashMap<>();
-        List<IStrategy> listaRegrasSalvarResponsavelFim = new ArrayList<>();
-        listaRegrasSalvarPacienteFim.add(new Logar());
-        mapaResponsavelFim.put("SALVAR",listaRegrasSalvarResponsavelFim);
-        mapaResponsavelFim.put("ALTERAR",listaRegrasSalvarResponsavelFim);
-        mapaResponsavelFim.put("EXCLUIR",listaRegrasSalvarResponsavelFim);
-        finalizationRnsMap.put(Responsavel.class.getSimpleName(),mapaResponsavelFim);
-
     }
 
     @Override
     public Resultado salvar(EntidadeDominio entidade){
-        String operation = "SAVE";
+        String operation = "SALVAR";
         StringBuilder strbErros = new StringBuilder();
         Resultado resultado = new Resultado();
 
         strbErros.append(executarRegras(entidade,operation,startupRsnMap));
 
         //Caso alguma retorne um erro o processmento n é executado e retona um resultado apenas com as msgs de erro
-        if(!strbErros.isEmpty()) {
+        if(strbErros.length() > 0) {
             return new Resultado(strbErros.toString());
         }
 
@@ -119,7 +97,7 @@ public class Fachada implements IFachada{
         strbErros.append(executarRegras(entidade,operation,startupRsnMap));
 
         //Caso alguma retorne um erro o processmento n é executado e retona um resultado apenas com as msgs de erro
-        if(!strbErros.isEmpty()) {
+        if(strbErros.length() > 0) {
             return new Resultado(strbErros.toString());
         }
         //Executa transacao
@@ -152,7 +130,7 @@ public class Fachada implements IFachada{
         strbErros.append(executarRegras(entidade,operation,startupRsnMap));
 
         //Caso alguma retorne um erro o processmento n é executado e retona um resultado apenas com as msgs de erro
-        if(!strbErros.isEmpty()) {
+        if(strbErros.length() > 0) {
             return new Resultado(strbErros.toString());
         }
         //Executa transacao
@@ -184,14 +162,21 @@ public class Fachada implements IFachada{
         strbErros.append(executarRegras(entidade,operation,startupRsnMap));
 
         //Caso alguma retorne um erro o processmento n é executado e retona um resultado apenas com as msgs de erro
-        if(!strbErros.isEmpty()) {
+        if(strbErros.length() > 0) {
             return new Resultado(strbErros.toString());
         }
         //Executa transacao
         IDao dao = daoMap.get(entidade.getClass().getSimpleName());
         List<EntidadeDominio> listEntidade = new ArrayList<>();
         try{
-            listEntidade = dao.findAll(entidade);
+            if(entidade.getId() > 0){
+                EntidadeDominio ent = dao.findById(entidade);
+                listEntidade.add(ent);
+
+            }else{
+                listEntidade = dao.findAll(entidade);
+            }
+
             resultado.setResultado(listEntidade);
 
         }catch (SQLException e){

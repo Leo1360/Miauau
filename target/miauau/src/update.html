@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/veterinario.png">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="scripts/index.js" type="module" defer></script>
-
-    <title>MiauAu - Cadastrar</title>
+    <link rel="stylesheet" href="css/update.css">
+    <link rel="stylesheet" href="css/read.css">
+    <title>MiauAu - Atualizar</title>
 </head>
 <body>
-
+    
     <header>
-        
+        <nav>
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="index.html">
                         <ion-icon name="duplicate-outline"></ion-icon>
                         <span class="menu-option">Cadastrar</span>
                     </a>
@@ -46,15 +46,65 @@
                     </a>
                 </li>
             </ul>
-        
+        </nav>
     </header>
 
-    <main class="main">
+    <div class="fornecedores-container">
+        <div class="fornecedores-table">
+            <div class="cadastro-user"><h2>Alterar Pets</h2></div>
+           
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Raça</th>    
+                    <th>Peso</th>
+                    <th>Responsável</th>
+                    <th>Cidade</th>
+                    <th>Contato WhatsApp</th>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td>Jorge Bolinha</td>
+                    <td>Vira lata</td>
+                    <td>20,00 kg</td>
+                    <td>Beatriz</td>
+                    <td>Mogi das Cruzes</td>
+                    <td>11 965764649</td>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td>Lidinha</td>
+                    <td>Vira lata caramelo</td>
+                    <td>22,00 kg</td>
+                    <td>Beatriz</td>
+                    <td>Mogi das Cruzes</td>
+                    <td>11 965764649</td>
+                </tr>
+
+                <tr class="fornecedor">
+                    <td>Johnny</td>
+                    <td>Golden Retriever</td>
+                    <td>45,00 kg</td>
+                    <td>Fernando</td>
+                    <td>Poá</td>
+                    <td>11 940028922</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+    <div class="modal" id="modal">
         <div class="form-container">
             <form action="">
                 <div class="form-sections">  
                     <section>
-                        <h2>Pet</h2>
+                        <div class="close-button">
+                            <h2>Alterar Fornecedor</h2>
+                            <ion-icon name="close-circle"></ion-icon>
+                        </div>
+                        
                         <div><label style="
                             width: 420px;" for="">Tipo do Animal</label>
                             <select style="
@@ -116,14 +166,27 @@
                         <div><label for="">Estado</label><input type="text" placeholder="UF" id="estado" itemid="estado" name="estado"></div>
                     </section>
                 </div>
-                <div class="buttons-container-index">
-                    <input type="submit" value="Cadastrar">
-                    <button type="submit" class="rascunho">Cadastrar como Rascunho</button>
+                <div class="buttons-container">
+                    <input type="submit" value="Atualizar">
                 </div>
             </form>
         </div>
-    </main>
-    <script src="scripts/index.js" type="module" defer></script>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        $(".fornecedor").click(function(){
+            let modal = document.getElementById('modal');
+            modal.style.display = "block";
+        });
+        $(".close-button").click(function(){
+            let modal = document.getElementById('modal');
+            modal.style.display = "none";
+        })
+    </script>
+
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
